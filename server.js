@@ -2,7 +2,7 @@ const express = require('express')
 const hbs = require('hbs')
 const fs = require('fs')
 
-const port = process.env.PORT || 8080
+const port = process.env.PORT
 
 var app = express();
 //middleware lets you change express
@@ -11,18 +11,18 @@ app.set('view engine','hbs');
 
 app.use(express.static(__dirname + '/public'))
 
-app.use((req,res,next)=> {
-    var now = new Date().toString();
+// app.use((req,res,next)=> {
+//     var now = new Date().toString();
     
-    console.log(now,req.method,req.url)
-})
+//     console.log(now,req.method,req.url)
+// })
 
 
-app.use((req,res,next) => {
-    var now = new Date
-})
+// app.use((req,res,next) => {
+//     var now = new Date
+// })
 
-app.listen(process.env.PORT,() =>{
+app.listen(port,() =>{
     console.log('server up')
 })
 
@@ -36,10 +36,8 @@ app.get('/about',(req,res) => {
 
 //request and response
 app.get('/',(req,res)=>{
-    res.send({
-        name: 'ian'
+    res.send('hey')
         
-    });
 })
 
 //app.listen binds application to a port on the machine
